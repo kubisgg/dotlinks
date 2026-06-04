@@ -18,6 +18,7 @@
       "onFail": "download"
     }
   },
+  "packageManager": "pnpm@11.5.1",
   "type": "module",
   "dependencies": {
     "@astrojs/react": "^5.0.7",
