@@ -1,0 +1,43 @@
+:root {
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+  --accent: #c8412f;
+  --bg-window: #0d0d10;
+  --text: #e8e6e1;
+  --border: color-mix(in oklab, var(--text) 18%, transparent);
+  --text-dim: color-mix(in oklab, var(--text) 60%, var(--bg-window));
+  --page-bg: #050507;
+  --window-shadow:
+    0 24px 60px -28px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  --window-max: 520px;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--page-bg);
+  color: var(--text);
+  font-family: var(--mono);
+  overflow-x: hidden;
+}
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg-window);
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+.blink {
+  animation: blink 1.05s steps(1) infinite;
+}
+
+a:focus-visible {
+  outline: none;
+}

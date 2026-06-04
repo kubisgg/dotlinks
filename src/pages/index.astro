@@ -1,0 +1,49 @@
+---
+import Shell from '../components/Shell.jsx';
+import '../styles/global.css';
+
+let links = null;
+let bio = null;
+
+const LINKS_URL = import.meta.env.LINKS_URL;
+const BIO_URL = import.meta.env.BIO_URL;
+
+if (LINKS_URL) {
+  try {
+    const res = await fetch(LINKS_URL + '?t=' + Date.now());
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    links = await res.json();
+  } catch (e) {
+    console.error('[shell] Failed to fetch links:', e instanceof Error ? e.message : e);
+  }
+}
+
+if (BIO_URL) {
+  try {
+    const res = await fetch(BIO_URL + '?t=' + Date.now());
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    bio = (await res.text()).trim();
+  } catch (e) {
+    console.error('[shell] Failed to fetch bio:', e instanceof Error ? e.message : e);
+  }
+}
+---
+
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>kubis</title>
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <Shell links={links} bio={bio} client:load />
+  </body>
+</html>
