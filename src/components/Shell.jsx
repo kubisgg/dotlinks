@@ -476,13 +476,22 @@ export default function App({ links, bio }) {
             display: "flex",
             justifyContent: "space-between",
             fontSize: 10.5,
-            opacity: 0.55,
             flexWrap: "wrap",
             gap: 8,
           }}
         >
-          <span>↑↓ select · ⏎ open</span>
-          <span>kubis · v1.0.0</span>
+          <span style={{ opacity: 0.55 }}>↑↓ select · ⏎ open</span>
+          <span>
+            <a
+              href="https://github.com/kubisgg/dotlinks"
+              target="_blank"
+              rel="noopener"
+              style={{ color: "var(--text)", textDecoration: "none" }}
+            >
+              <span style={{ verticalAlign: "-0.08em" }}>&copy;</span> kubis
+            </a>
+            <span style={{ opacity: 0.55 }}>{" · v1.0.0"}</span>
+          </span>
         </div>
       </WindowChrome>
     </div>
