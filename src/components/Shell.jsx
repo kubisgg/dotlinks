@@ -91,9 +91,7 @@ const InfoRow = ({ k, v }) => (
         opacity: 0.95,
         flex: 1,
         minWidth: 0,
-        whiteSpace: "nowrap",
-        overflow: "hidden",
-        textOverflow: "ellipsis",
+        wordBreak: "break-word",
       }}
     >
       {v}
